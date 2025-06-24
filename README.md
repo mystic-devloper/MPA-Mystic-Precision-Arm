@@ -37,11 +37,16 @@ To build and use MPA, you will need:
     cd MPA-Mystic-Precision-Arm
     ```
 2.  **Build the library:**
-    This library generally comes pre-build but if you want to build use,
+    First make sure and see in makefile that you are building for correct OS bits.
     ```bash
     make
     ```
-    This will compile the library and generate the necessary artifacts (e.g., `libmpa.a`).
+    This will compile the library and generate the necessary artifacts (e.g., `libmpa.a` for 64 bits and `libmpa32.a` for 32 bits).
+
+## Important Note
+This library is native for 64 bits but also has extensive support for 32 bits.
+Classes or types such as mpa_int_t, mpa_float_t, etc are 64 bits.
+and mpa32_int_t, mpa32_int_t, etc are 32 bits.
 
 ## Contributions
 This project welcomes contributions and if you are interested feel free to contribute!
@@ -52,4 +57,4 @@ This project is under MIT Open Source Licence. For full information read LICENCE
 ## Contributors
 * Mystic-Devloper
 
-... Waiting for more! Come on!
+  ... Waiting for more! Come on!
