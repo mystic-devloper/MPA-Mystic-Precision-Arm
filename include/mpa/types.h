@@ -25,9 +25,12 @@ typedef size_t   usize;  // Standard unsigned size type
 typedef ssize_t  isize;  // Standard signed size type (often a typedef for long or int on systems)
 
 // --- Mathematical Constants ---
-constexpr f32 PI_F32 = 3.14159265358979323846F; // More precision for float
-constexpr f64 PI_F64 = 3.14159265358979323846;  // Full double precision
 
+// PI (π)
+constexpr f32 PI_F32 = 3.14159265358979323846F;
+constexpr f64 PI_F64 = 3.14159265358979323846;
+
+// Tau (τ)
 constexpr f32 TAU_F32 = (2.0f * PI_F32);
 constexpr f64 TAU_F64 = (2.0 * PI_F64);
 
@@ -36,17 +39,30 @@ constexpr f32 E_F32 = 2.71828182845904523536F;
 constexpr f64 E_F64 = 2.71828182845904523536;
 
 // Common SQRTs
+constexpr f32 SQRT2_F32 = 1.41421356237309504880F;
 constexpr f64 SQRT2_F64 = 1.41421356237309504880;
-constexpr f64 INV_SQRT_F64 = 0.70710678118654752440;
+
+constexpr f32 INV_SQRT2_F32 = 0.70710678118654752440F;
+constexpr f64 INV_SQRT2_F64 = 0.70710678118654752440;
+
+constexpr f32 SQRT3_F32 = 1.73205080756887729353F;
 constexpr f64 SQRT3_F64 = 1.73205080756887729353;
+
+constexpr f32 SQRT_PI_F32 = 1.77245385090551599275F;
 constexpr f64 SQRT_PI_F64 = 1.77245385090551599275;
+
+constexpr f32 SQRT5_F32 = 2.23606797749978969641F;
 constexpr f64 SQRT5_F64 = 2.23606797749978969641;
 
 // Natural Logrithms
+constexpr f32 LN2_F32 = 0.69314718055994530942F;
 constexpr f64 LN2_F64 = 0.69314718055994530942;
+
+constexpr f32 LN10_F32 = 2.30258509299404568402F;
 constexpr f64 LN10_F64 = 2.30258509299404568402;
 
 // Golden Ratio
+constexpr f32 GOLDEN_RATIO_F32 = 1.61803398874989484820F;
 constexpr f64 GOLDEN_RATIO_F64 = 1.61803398874989484820;
 
 } // namespace mpa
