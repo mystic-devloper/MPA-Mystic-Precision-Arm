@@ -7,7 +7,8 @@ Welcome to the `examples` directory! This guide will walk you through compiling 
 ---
 
 ## Prerequisites
-* Download and setup your prefered compiler (e.g. `clang` or 
+* Download and setup your prefered compiler (e.g. `clang` or `gcc/g++`)
+* Download the library source code zip and unzip it into a folder (for example `mpa-examples` if only desires `examples`)
 
 ## Quick Start: Compiling an Example
 
