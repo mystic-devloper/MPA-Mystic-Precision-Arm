@@ -1,8 +1,9 @@
 #ifndef __MYSTIC_PRECISION_ARM_TYPES_H__
 #define __MYSTIC_PRECISION_ARM_TYPES_H__
 
-#include <cstdint> // For uint8_t, int32_t, etc.
-#include <cstddef> // For size_t, ssize_t
+#include <cstdint>  // For uint8_t, int32_t, etc.
+#include <cstddef>  // For size_t, ssize_t
+#include <unistd.h> // For ssize_t (POSIX standard)
 
 // --- MPA Namespace ---
 namespace mpa {
