@@ -37,7 +37,7 @@ To build and use MPA, you will need:
     cd MPA-Mystic-Precision-Arm
     ```
 2.  **Build the library:**
-    Building library is very simple,
+    Building library is very simple! First, configure `makefile` as per you need (i.e. choosing correct architecture, etc) and then run,
     ```bash
     make
     ```
@@ -45,6 +45,7 @@ To build and use MPA, you will need:
     * `libmpa64_arm9.a` for 64 bits `ARMv9-A`.
     * `libmpa64_arm8.a` for 64 bits `ARMv8-A`.
     * `libmpa32_arm7.a` for 32 bits `ARMv7-A`.
+    * or, your specified artifact name.
 
     You can also change artifact names and compiler flags. For this customize makefile as per your need.
 
