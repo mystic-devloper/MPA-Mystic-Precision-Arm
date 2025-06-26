@@ -71,7 +71,7 @@ You have to change makefile commands too.
   ```
   Use,
   ```bash
-  arm-linux-gnueabihf-gcc
+  arm-linux-gnueabihf-g++
   ```
   
   For compiling for ARMv9-A replace `arm-linux-gnueabihf-gcc` to `aarch64-linux-gnu`.
