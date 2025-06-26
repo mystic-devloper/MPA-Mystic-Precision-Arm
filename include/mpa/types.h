@@ -25,6 +25,16 @@ typedef int64_t  i64;
 typedef size_t   usize;  // Standard unsigned size type
 typedef ssize_t  isize;  // Standard signed size type (often a typedef for long or int on systems)
 
+// --- __uint128_t and __int128_t ---
+#if defined(__SIZEOF_INT128__)
+typedef __uint128_t u128;
+typedef __int128_t  i128;
+#else
+// This error will trigger if __uint128_t is not available.
+// For an MPA library using u64 limbs, native 128-bit types are crucial.
+#error "Compiler does not support __uint128_t. This MPA library requires 128-bit integer types for u64 limb arithmetic."
+#endif
+
 // --- Mathematical Constants ---
 
 // PI (π)
