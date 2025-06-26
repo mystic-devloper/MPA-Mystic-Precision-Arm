@@ -2,7 +2,7 @@
 
 ## 🌟 Overview
 
-Mystic-Precision-Arm (MPA) is a cutting-edge, multiple-precision lightweight math library meticulously crafted for ARM processors. Designed with efficiency and versatility in mind, MPA empowers developers to perform high-precision arithmetic operations on resource-constrained ARM devices, opening up a myriad of possibilities across various applications.
+`Mystic-Precision-Arm (MPA)` is a cutting-edge, multiple-precision lightweight math library meticulously crafted for ARM processors. Designed with efficiency and versatility in mind, MPA empowers developers to perform high-precision arithmetic operations on resource-constrained ARM devices, opening up a myriad of possibilities across various applications.
 
 Whether you're working on cryptographic algorithms, scientific simulations, or embedded systems requiring enhanced numerical accuracy, MPA provides the robust and optimized mathematical foundation you need.
 
@@ -37,16 +37,45 @@ To build and use MPA, you will need:
     cd MPA-Mystic-Precision-Arm
     ```
 2.  **Build the library:**
-    First make sure and see in makefile that you are building for correct OS bits.
+    Building library is very simple,
     ```bash
     make
     ```
-    This will compile the library and generate the necessary artifacts (e.g., `libmpa.a` for 64 bits and `libmpa32.a` for 32 bits).
+    This will compile the library and generate the necessary artifacts, that are,
+    * `libmpa64_arm9.a` for 64 bits `ARMv9-A`.
+    * `libmpa64_arm8.a` for 64 bits `ARMv8-A`.
+    * `libmpa32_arm7.a` for 32 bits `ARMv7-A`.
+
+    You can also change artifact names and compiler flags. For this customize makefile as per your need.
 
 ## Important Note
-This library is native for 64 bits but also has extensive support for 32 bits.
-Classes or types such as mpa_int_t, mpa_float_t, etc are 64 bits.
-and mpa32_int_t, mpa32_int_t, etc are 32 bits.
+You can also enable cross-compilation for it you have to install few pakages such as,
+  
+  * `aarch64-linux-gnu`: This is for 64 bits ARM systems.
+  * `arm-linux-gnueabihf`: This is for 32 bits ARM systems.
+
+You have to change makefile commands too.
+**Example**: Say your host machine is ARMv8-A then, for ARMv7-A add this to command too,
+  ### For clang: 
+  ```bash
+  --target=arm-linux-gnueabihf \
+  -march=armv7-a \
+  --sysroot=/usr/arm-linux-gnueabihf \
+  ```
+  
+  ### For GCC/G++:
+  Instead of using,
+  ```bash
+  g++
+  ```
+  Use,
+  ```bash
+  arm-linux-gnueabihf-gcc
+  ```
+  
+  For compiling for ARMv9-A replace `arm-linux-gnueabihf-gcc` to `aarch64-linux-gnu`.
+
+**A important thing to keep in mind**, you can run programs built for `ARMv8-A` on `ARMv9-A` and so some extent vice-versa. But if a program is native to `ARMv7-A` then, you can run it on `ARMv8-A` or `ARMv9-A` machines and vice-versa.
 
 ## Contributions
 This project welcomes contributions and if you are interested feel free to contribute!
