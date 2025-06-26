@@ -49,7 +49,7 @@ To build and use MPA, you will need:
 
     You can also change artifact names and compiler flags. For this customize makefile as per your need.
 
-## Important Note
+## 💡 Important Note
 You can also enable cross-compilation for it you have to install few pakages such as,
   
   * `aarch64-linux-gnu`: This is for 64 bits ARM systems.
@@ -78,13 +78,13 @@ You have to change makefile commands too.
 
 **A important thing to keep in mind**, you can run programs built for `ARMv8-A` on `ARMv9-A` and for some extent vice-versa. But if a program is native to `ARMv7-A` then, you can run it on `ARMv8-A` or `ARMv9-A` machines and vice-versa.
 
-## Contributions
+## 🤝 Contributions
 This project welcomes contributions and if you are interested feel free to contribute!
 
-## LICENCE
+## ⚖️ LICENCE
 This project is under MIT Open Source Licence. For full information read LICENCE.
 
-## Contributors
+## 🧑‍🤝‍🧑 Contributors
 * Mystic-Devloper
 
   ... Waiting for more! Come on!
