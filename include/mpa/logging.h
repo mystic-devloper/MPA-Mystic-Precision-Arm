@@ -85,9 +85,9 @@ inline void default_console_logger(LogLevel level, const char* message, const ch
     default:                level_str = "UNKNOWN"; break;
   }
   if (level >= LogLevel::Warning) {
-    fprintf(stderr, "[MPA %s] %s:%d %s - %s\n", level_str, file, line, func, message);
+    fprintf(stderr, "[MPA %s] %s %s:%d %s - %s\n", level_str, __TIME__, file, line, func, message);
   } else {
-    fprintf(stdout, "[MPA %s] %s:%d %s - %s\n", level_str, file, line, func, message);
+    fprintf(stdout, "[MPA %s] %s %s:%d %s - %s\n", level_str, __TIME__, file, line, func, message);
   }
 }
 
