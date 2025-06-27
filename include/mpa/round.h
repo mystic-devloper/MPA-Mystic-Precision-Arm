@@ -1,42 +1,93 @@
-#ifndef __MYSTIC_PRECISION_ARM_ROUND_H__ // Include guard to prevent multiple inclusions of this header file.
-#define __MYSTIC_PRECISION_ARM_ROUND_H__ // Defines the macro to mark this header as included.
+#ifndef __MYSTIC_PRECISION_ARM_ROUND_H__
+#define __MYSTIC_PRECISION_ARM_ROUND_H__
 
-#include <mpa/types.h> // Includes the necessary type definitions from the 'mpa' library.
+#include <cmath>       // For std::round, std::trunc, std::ceil, std::floor, std::rint, std::fabs, std::fmod
+#include <type_traits> // For std::enable_if, std::is_floating_point
 
-namespace mpa { // Defines the top-level namespace for the Mystic Precision ARM (MPA) library.
+#include "mpa/types.h" // For f32, f64
 
-namespace round { // Defines a nested namespace specifically for rounding functions.
+namespace mpa {
+namespace round {
 
-// Template function for rounding to the nearest integer.
-// For example, nearest(2.5) could be 3, a.k.a commercial rounding).
-template <typename T> T nearest(T x);
+/**
+ * @brief Rounds a floating-point number to the nearest integer.
+ * Halfway cases (e.g., 2.5) round away from zero.
+ * Equivalent to std::round.
+ * @tparam T A floating-point type (e.g., float, double, long double).
+ * @param x The input number.
+ * @return The nearest integer value of x.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+nearest(T x);
 
-// Template function for rounding towards zero (truncation).
-// For example, towards_zero(2.7) would be 2, and towards_zero(-2.7) would be -2.
-template <typename T> T towards_zero(T x);
+/**
+ * @brief Rounds a floating-point number towards zero (truncation).
+ * Equivalent to std::trunc.
+ * @tparam T A floating-point type.
+ * @param x The input number.
+ * @return The integer value of x closer to zero.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+towards_zero(T x);
 
-// Template function for rounding away from zero.
-// For example, away_from_zero(2.3) would be 3, and away_from_zero(-2.3) would be -3.
-template <typename T> T away_from_zero(T x);
+/**
+ * @brief Rounds a floating-point number away from zero.
+ * @tparam T A floating-point type.
+ * @param x The input number.
+ * @return The integer value of x further from zero.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+away_from_zero(T x);
 
-// Template function for rounding towards the nearest even integer.
-// For example, towards_even(2.5) would be 2, and towards_even(3.5) would be 4.
-template <typename T> T towards_even(T x);
+/**
+ * @brief Rounds a floating-point number to the nearest integer.
+ * Halfway cases (e.g., 2.5) round to the nearest even integer.
+ * Equivalent to std::rint.
+ * @tparam T A floating-point type.
+ * @param x The input number.
+ * @return The nearest integer value of x, rounding to even in halfway cases.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+towards_even(T x);
 
-// Template function for rounding towards the nearest odd integer.
-// For example, towards_odd(2.5) would be 3, and towards_odd(3.5) would be 3.
-template <typename T> T towards_odd(T x);
+/**
+ * @brief Rounds a floating-point number to the nearest integer.
+ * Halfway cases (e.g., 2.5, 3.5) round to the nearest odd integer.
+ * @tparam T A floating-point type.
+ * @param x The input number.
+ * @return The nearest integer value of x, rounding to odd in halfway cases.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+towards_odd(T x);
 
-// Template function for ceiling: rounds up to the smallest integer greater than or equal to x.
-// For example, ceil(2.3) would be 3, and ceil(2.0) would be 2.
-template <typename T> T ceil(T x);
+/**
+ * @brief Rounds a floating-point number up to the nearest integer.
+ * Equivalent to std::ceil.
+ * @tparam T A floating-point type.
+ * @param x The input number.
+ * @return The smallest integer value not less than x.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+ceil(T x);
 
-// Template function for floor: rounds down to the largest integer less than or equal to x.
-// For example, floor(2.7) would be 2, and floor(2.0) would be 2.
-template <typename T> T floor(T x);
+/**
+ * @brief Rounds a floating-point number down to the nearest integer.
+ * Equivalent to std::floor.
+ * @tparam T A floating-point type.
+ * @param x The input number.
+ * @return The largest integer value not greater than x.
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+floor(T x);
 
 } // namespace round
-
 } // namespace mpa
 
-#endif // __MYSTIC_PRECISION_ARM_ROUND_H__ // Ends the include guard.
+#endif // __MYSTIC_PRECISION_ARM_ROUND_H__
