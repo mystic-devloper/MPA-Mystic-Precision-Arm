@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Vim/Neovim swap files. These are not used in library but I use vim for text editing.
+*.swp
+*.swo
+*.swn
