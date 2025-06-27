@@ -127,13 +127,15 @@ ARCHIVE_TARGET := $(LIB_OUTPUT_DIR)/$(LIB_TARGET_NAME)
 #------------------------------------------------------------------------------
 
 # Define source files based on the target architecture version.
+SRCS_BASE := $(wildcard src/mpa/*.cpp)
+
 SRCS :=
 ifeq ($(TARGET_VERSION), ARMv9)
-        SRCS := $(wildcard src/mpa64/*.cpp)
+        SRCS := $(SRCS_BASE) $(wildcard src/mpa64/*.cpp)
 else ifeq ($(TARGET_VERSION), ARMv8)
-        SRCS := $(wildcard src/mpa64/*.cpp)
+        SRCS := $(SRCS_BASE) $(wildcard src/mpa64/*.cpp)
 else ifeq ($(TARGET_VERSION), ARMv7)
-        SRCS := $(wildcard src/mpa32/*.cpp)
+        SRCS := $(SRCS_BASE) $(wildcard src/mpa32/*.cpp)
 else
         $(error Invalid TARGET_VERSION for source file selection. This should not happen if TARGET_VERSION is validated above.)
 endif
