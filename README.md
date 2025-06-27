@@ -71,12 +71,12 @@ You have to change makefile commands too.
   ```
   Use,
   ```bash
-  arm-linux-gnueabihf-gcc
+  arm-linux-gnueabihf-g++
   ```
   
   For compiling for ARMv9-A replace `arm-linux-gnueabihf-gcc` to `aarch64-linux-gnu`.
 
-**A important thing to keep in mind**, you can run programs built for `ARMv8-A` on `ARMv9-A` and for some extent vice-versa. But if a program is native to `ARMv7-A` then, you can run it on `ARMv8-A` or `ARMv9-A` machines and vice-versa.
+**A important thing to keep in mind**, you can run programs built for `ARMv8-A` on `ARMv9-A` and for some extent vice-versa. But if a program is native to `ARMv7-A` then, you can not run it on `ARMv8-A` or `ARMv9-A` machines and vice-versa.
 
 ## 🤝 Contributions
 This project welcomes contributions and if you are interested feel free to contribute!
