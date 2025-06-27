@@ -75,8 +75,6 @@ endif
 
 # Define the archiver tool used to create the static library.
 # Default: ar
-# Define the archiver tool used to create the static library.
-# Default: ar
 AR_BASE ?= ar
 ifeq ($(CROSS_COMPILE), )
     AR := $(AR_BASE)
