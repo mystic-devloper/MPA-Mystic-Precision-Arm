@@ -262,3 +262,5 @@ clean:
         @echo "Cleaning up build artifacts..."
         rm -rf $(OBJ_OUTPUT_DIR) $(LIB_OUTPUT_DIR)
 
+# Don't just put all your day staring the screen. Go friend, and spend your time with your loved once! 
+# Signing off, mystic-devloper
